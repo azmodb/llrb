@@ -33,7 +33,7 @@ type Txn struct {
 }
 
 // Range performs fn on all values stored in the tree over the interval
-// [from, to) from left to right. If to is less than from Range will
+// [from, to] from left to right. If to is less than from Range will
 // panic. A boolean is returned indicating whether the Range traversal
 // was interrupted by an Visitor returning true. If fn alters stored
 // values sort relationships future tree operation behaviors are

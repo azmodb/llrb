@@ -66,20 +66,26 @@ func TestRange(t *testing.T) {
 
 	sort.Sort(values)
 
+	tree.Range(compInt(-32), compInt(100), v)
+	if !reflect.DeepEqual(values[0:6], result) {
+		t.Fatalf("range: expected values %v, have %v", values[0:6], result)
+	}
+	result = result[:0]
+
 	tree.Range(compInt(-32), compInt(2350), v)
 	if !reflect.DeepEqual(values, result) {
-		t.Fatalf("foreach: expected values %v, have %v", values, result)
+		t.Fatalf("range: expected values %v, have %v", values, result)
 	}
 	result = result[:0]
 
 	tree.Range(compInt(-32), compInt(2), v)
 	if !reflect.DeepEqual(values[:4], result) {
-		t.Fatalf("foreach: expected values %v, have %v", values[:4], result)
+		t.Fatalf("range: expected values %v, have %v", values[:4], result)
 	}
 	result = result[:0]
 
 	tree.Range(compInt(-10), compInt(2), v)
 	if !reflect.DeepEqual(values[1:4], result) {
-		t.Fatalf("foreach: expected values %v, have %v", values[1:4], result)
+		t.Fatalf("range: expected values %v, have %v", values[1:4], result)
 	}
 }

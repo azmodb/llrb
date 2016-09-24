@@ -254,12 +254,12 @@ func (n *node) doRange(lo, hi Element, fn Visitor) (done bool) {
 			return done
 		}
 	}
-	if lc <= 0 && hc > 0 {
+	if lc <= 0 && hc >= 0 {
 		if done = fn(n.elem); done {
-			return
+			return done
 		}
 	}
-	if hc > 0 && n.right != nil {
+	if hc >= 0 && n.right != nil {
 		done = n.right.doRange(lo, hi, fn)
 	}
 	return done
